@@ -1,6 +1,14 @@
 (function () {
+  const API_BASE = 'https://garforvia-backend.onrender.com';
+
   const qs = (sel, root = document) => root.querySelector(sel);
   const qsa = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+  const apiUrl = (path) => {
+    if (!path) return API_BASE;
+    if (path.startsWith('http://') || path.startsWith('https://')) return path;
+    return `${API_BASE}${path.startsWith('/') ? path : `/${path}`}`;
+  };
 
   const statusHTML = (status) => {
     const value = String(status || '').toLowerCase();
@@ -11,7 +19,13 @@
   };
 
   async function api(url, options = {}) {
-    const response = await fetch(url, options);
+    const finalOptions = { ...options };
+
+    if (finalOptions.credentials === undefined) {
+      finalOptions.credentials = 'include';
+    }
+
+    const response = await fetch(apiUrl(url), finalOptions);
     const data = await response.json().catch(() => ({}));
     if (!response.ok || data.ok === false) {
       throw new Error(data.error || 'Request failed.');
@@ -272,8 +286,8 @@
             <div class="record-meta">Reason: ${escapeHTML(item.reason)}</div>
             <p>${escapeHTML(item.statement)}</p>
             <div class="download-links">
-              ${item.has_portrait ? `<a href="/api/admin/download/citizenship/${item.id}/portrait_path">Download portrait</a>` : ''}
-              ${item.has_identity_document ? `<a href="/api/admin/download/citizenship/${item.id}/identity_document_path">Download identity document</a>` : ''}
+              ${item.has_portrait ? `<a href="${apiUrl(`/api/admin/download/citizenship/${item.id}/portrait_path`)}" target="_blank" rel="noopener">Download portrait</a>` : ''}
+              ${item.has_identity_document ? `<a href="${apiUrl(`/api/admin/download/citizenship/${item.id}/identity_document_path`)}" target="_blank" rel="noopener">Download identity document</a>` : ''}
             </div>
             <form class="record-form citizen-update-form">
               <input type="hidden" name="id" value="${item.id}">
@@ -308,7 +322,7 @@
             <div class="record-meta">Address: ${escapeHTML(item.address)}</div>
             ${item.notes ? `<p>${escapeHTML(item.notes)}</p>` : ''}
             <div class="download-links">
-              ${item.has_portrait ? `<a href="/api/admin/download/passport/${item.id}/portrait_path">Download portrait</a>` : ''}
+              ${item.has_portrait ? `<a href="${apiUrl(`/api/admin/download/passport/${item.id}/portrait_path`)}" target="_blank" rel="noopener">Download portrait</a>` : ''}
             </div>
             <form class="record-form passport-update-form">
               <input type="hidden" name="id" value="${item.id}">
