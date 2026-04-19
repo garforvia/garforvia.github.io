@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parliament · Government of Garforvia</title>
+  <meta name="description" content="Official website of the Republic of Garforvia.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div><strong>Official website</strong> of the Republic of Garforvia</div>
+    <div>Altofts, West Yorkshire · Restored 20 March 2026</div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Government of Garforvia home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span><small>Government of Garforvia</small><strong>Republic of Garforvia</strong></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a><a href="government.html">Government</a><a href="citizenship.html">Citizenship</a><a href="passport.html">Passport</a><a href="elections.html">Elections</a><a href="parliament.html" class="active">Parliament</a><a href="news.html">News</a>
+    </nav>
+  </div>
+</header>
+<div class="alert-strip">
+  <div class="alert-inner">
+    <span class="alert-badge">Public notice</span>
+    <span class="public-notice-text">Civil Registry applications and Passport Office submissions are now live. Approved citizenship references can be used to request Garforvian passports.</span>
+  </div>
+</div>
+<main id="main" class="page">
+
+  <section class="page-hero">
+    <div class="kicker">Parliament</div>
+    <h1>Seats, parties, and the public face of representation.</h1>
+    <p>This page takes the parliamentary material you supplied and presents it in a cleaner, more authoritative form.</p>
+  </section>
+
+  <section class="section three-grid">
+    <div class="card"><div class="kicker">Chamber design</div><h3>Cleaner than the wiki table</h3><p>The parliamentary area is structured like an election authority page, not a loose article block.</p></div>
+    <div class="media-card"><div class="caption"><strong>National flag</strong><br>Used as a visual anchor behind electoral and parliamentary content.</div></div>
+    <div class="media-card coa"><div class="caption"><strong>Authority mark</strong><br>Used to frame the chamber as an institution of state.</div></div>
+  </section>
+
+  <section class="section">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Party</th>
+            <th>Cabinet leader</th>
+            <th>Ideology</th>
+            <th>Seats</th>
+            <th>Progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="party-chip"><span class="party-dot green"></span>Green Party</span></td>
+            <td>WGT Leader Turner (PL: Max D Evans)</td>
+            <td>Environmentalism</td>
+            <td>2 / 80</td>
+            <td><div class="progress"><span style="width:2.5%"></span></div></td>
+          </tr>
+          <tr>
+            <td><span class="party-chip"><span class="party-dot purple"></span>Social Democratic Party</span></td>
+            <td>N/A</td>
+            <td>Social democracy</td>
+            <td>0 / 80</td>
+            <td><div class="progress"><span style="width:0%"></span></div></td>
+          </tr>
+          <tr>
+            <td><span class="party-chip"><span class="party-dot blue"></span>Conservative Party</span></td>
+            <td>N/A</td>
+            <td>Conservatism</td>
+            <td>0 / 80</td>
+            <td><div class="progress"><span style="width:0%"></span></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="form-shell">
+      <div class="form-card">
+        <div class="kicker">Demonstration ballot</div>
+        <h2>Public voting interface</h2>
+        <p>This public ballot remains a participation demonstrator and opinion tally. Formal state elections should only be conducted through a separately secured voter authentication system.</p>
+        <form id="ballot-form">
+          <div>
+            <label for="party">Select a party</label>
+            <select id="party" name="party" required>
+              <option value="">Choose one</option>
+              <option value="Green">Green Party</option>
+              <option value="SDP">Social Democratic Party</option>
+              <option value="Conservative">Conservative Party</option>
+            </select>
+            <div class="helper">A production system would require identity checks, duplicate prevention, audit logs, and secure tallying.</div>
+          </div>
+          <button type="submit">Submit public opinion vote</button>
+        </form>
+        <div id="vote-result" style="margin-top:16px"></div>
+      </div>
+      <div class="form-card">
+        <div class="kicker">Live demo tally</div>
+        <h3>Public opinion tally</h3>
+        <div id="vote-board" class="mini-list"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <h4>Government of Garforvia</h4>
+      <p>The official website of the Republic of Garforvia, presenting public services, institutions, notices, law, and state information in one place.</p>
+      <div class="footer-bottom">This build uses a live SQLite registry, application tracking, and protected administrative review. Before public internet deployment, change the default administrator credentials and configure backups, TLS, and mail delivery.</div>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <p><a href="citizenship.html">Apply for citizenship</a><br>
+      <a href="passport.html">Apply for a passport</a><br>
+      <a href="laws.html">Read laws and codes</a><br>
+      <a href="admin.html">Civil Registry dashboard</a></p>
+    </div>
+    <div>
+      <h4>Government</h4>
+      <p><a href="government.html">Departments and offices</a><br>
+      <a href="parliament.html">Parliament and parties</a><br>
+      <a href="foreign-relations.html">Foreign relations</a><br>
+      <a href="history.html">National history</a></p>
+    </div>
+  </div>
+</footer>
+<script src="assets/script.js"></script>
+</body>
+</html>

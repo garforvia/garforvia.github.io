@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin dashboard · Government of Garforvia</title>
+  <meta name="description" content="Official website of the Republic of Garforvia.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div><strong>Official website</strong> of the Republic of Garforvia</div>
+    <div>Altofts, West Yorkshire · Restored 20 March 2026</div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Government of Garforvia home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span><small>Government of Garforvia</small><strong>Republic of Garforvia</strong></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a><a href="government.html">Government</a><a href="citizenship.html">Citizenship</a><a href="passport.html">Passport</a><a href="elections.html">Elections</a><a href="news.html">News</a><a href="admin.html" class="active">Admin</a>
+    </nav>
+  </div>
+</header>
+<div class="alert-strip">
+  <div class="alert-inner">
+    <span class="alert-badge">Public notice</span>
+    <span class="public-notice-text">Civil Registry applications and Passport Office submissions are now live. Approved citizenship references can be used to request Garforvian passports.</span>
+  </div>
+</div>
+<main id="main" class="page">
+
+<section class="page-hero">
+  <div class="kicker">Civil Registry administration</div>
+  <h1>Protected back-office dashboard</h1>
+  <p>Administrators can review applications, assign final statuses, issue citizen numbers, approve passport requests, and export records from the live register.</p>
+</section>
+
+<section class="section" id="admin-login-shell">
+  <div class="form-shell">
+    <div class="form-card">
+      <div class="kicker">Administrator sign-in</div>
+      <h2>Access the state dashboard</h2>
+      <form id="admin-login-form">
+        <div class="form-row">
+          <div>
+            <label for="admin-username">Username</label>
+            <input id="admin-username" name="username" required>
+          </div>
+          <div>
+            <label for="admin-password">Password</label>
+            <input id="admin-password" name="password" type="password" required>
+          </div>
+        </div>
+        <button type="submit">Sign in</button>
+      </form>
+      <div id="admin-login-result" style="margin-top:16px"></div>
+    </div>
+    <div class="form-card soft-panel">
+      <div class="kicker">Security note</div>
+      <h3>Deployment requirements</h3>
+      <div class="mini-list">
+        <div class="mini-item"><strong>Change credentials</strong><br>Replace the packaged administrator credentials before public deployment.</div>
+        <div class="mini-item"><strong>Back up the database</strong><br>The register is stored in SQLite and should be backed up routinely.</div>
+        <div class="mini-item"><strong>Use TLS</strong><br>Do not expose the dashboard publicly over plain HTTP.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hidden" id="admin-dashboard-shell">
+  <div class="three-grid">
+    <div class="card"><div class="kicker">Citizen records</div><h3 id="stat-citizens">0</h3><p>Total applications in the register.</p></div>
+    <div class="card"><div class="kicker">Passport requests</div><h3 id="stat-passports">0</h3><p>Total requests in the register.</p></div>
+    <div class="card"><div class="kicker">Administration</div>
+      <div class="admin-actions">
+        <a class="button secondary" id="export-citizens" href="/api/admin/export/citizens.csv">Export citizens CSV</a>
+        <a class="button secondary" id="export-passports" href="/api/admin/export/passports.csv">Export passports CSV</a>
+        <button id="admin-logout" type="button" class="button secondary">Log out</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dashboard-grid hidden" id="admin-site-shell">
+  <div class="form-card">
+    <div class="kicker">Public communications</div>
+    <h2>Site-wide public notice</h2>
+    <p>Update the notice banner shown across the Garforvia website.</p>
+    <form id="public-notice-form" class="record-form">
+      <div>
+        <label for="public-notice-input">Public notice text</label>
+        <textarea id="public-notice-input" name="public_notice" rows="5" required></textarea>
+      </div>
+      <div class="inline-actions"><button type="submit">Update public notice</button></div>
+    </form>
+    <div id="public-notice-result" style="margin-top:16px"></div>
+  </div>
+  <div class="form-card">
+    <div class="kicker">Newsroom editor</div>
+    <h2>Add a news item</h2>
+    <form id="news-create-form" class="record-form">
+      <div>
+        <label for="news-title">Headline</label>
+        <input id="news-title" name="title" required>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="news-department">Office / department</label>
+          <input id="news-department" name="department" required>
+        </div>
+        <div>
+          <label for="news-date">Published date</label>
+          <input id="news-date" name="published_date" type="date" required>
+        </div>
+      </div>
+      <div>
+        <label for="news-body">Body</label>
+        <textarea id="news-body" name="body" rows="7" required></textarea>
+      </div>
+      <div>
+        <label><input type="checkbox" name="is_published" checked> Publish immediately</label>
+      </div>
+      <div class="inline-actions"><button type="submit">Publish news item</button></div>
+    </form>
+    <div id="news-create-result" style="margin-top:16px"></div>
+  </div>
+</section>
+
+<section class="section hidden" id="admin-news-shell">
+  <div class="form-card">
+    <div class="kicker">Newsroom management</div>
+    <h2>Edit or remove published items</h2>
+    <div id="admin-news-records" class="list-box"></div>
+  </div>
+</section>
+
+<section class="section dashboard-grid hidden" id="admin-record-shell">
+  <div class="form-card">
+    <div class="kicker">Citizenship queue</div>
+    <div id="citizen-records" class="list-box"></div>
+  </div>
+  <div class="form-card">
+    <div class="kicker">Passport queue</div>
+    <div id="passport-records" class="list-box"></div>
+  </div>
+</section>
+
+</main>
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <h4>Government of Garforvia</h4>
+      <p>The official website of the Republic of Garforvia, presenting public services, institutions, notices, law, and state information in one place.</p>
+      <div class="footer-bottom">This build uses a live SQLite registry, application tracking, and protected administrative review. Before public internet deployment, change the default administrator credentials and configure backups, TLS, and mail delivery.</div>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <p><a href="citizenship.html">Apply for citizenship</a><br>
+      <a href="passport.html">Apply for a passport</a><br>
+      <a href="laws.html">Read laws and codes</a><br>
+      <a href="admin.html">Civil Registry dashboard</a></p>
+    </div>
+    <div>
+      <h4>Government</h4>
+      <p><a href="government.html">Departments and offices</a><br>
+      <a href="parliament.html">Parliament and parties</a><br>
+      <a href="foreign-relations.html">Foreign relations</a><br>
+      <a href="history.html">National history</a></p>
+    </div>
+  </div>
+</footer>
+<script src="assets/script.js"></script>
+</body>
+</html>

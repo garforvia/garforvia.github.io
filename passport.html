@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passport · Government of Garforvia</title>
+  <meta name="description" content="Official website of the Republic of Garforvia.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div><strong>Official website</strong> of the Republic of Garforvia</div>
+    <div>Altofts, West Yorkshire · Restored 20 March 2026</div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Government of Garforvia home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span><small>Government of Garforvia</small><strong>Republic of Garforvia</strong></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a><a href="government.html">Government</a><a href="citizenship.html">Citizenship</a><a href="passport.html" class="active">Passport</a><a href="elections.html">Elections</a><a href="news.html">News</a>
+    </nav>
+  </div>
+</header>
+<div class="alert-strip">
+  <div class="alert-inner">
+    <span class="alert-badge">Public notice</span>
+    <span class="public-notice-text">Civil Registry applications and Passport Office submissions are now live. Approved citizenship references can be used to request Garforvian passports.</span>
+  </div>
+</div>
+<main id="main" class="page">
+
+  <section class="page-hero">
+    <div class="kicker">Passport Office</div>
+    <h1>Passport and identity document service</h1>
+    <p>Apply to the Passport Office for a Garforvian document. Passport requests are written to the official register and can be tracked by reference after submission.</p>
+  </section>
+
+  <section class="form-shell">
+    <div class="form-card">
+      <h2>Passport application</h2>
+      
+<form id="passport-form" enctype="multipart/form-data">
+  <div class="form-row">
+    <div>
+      <label for="passport-name">Full name</label>
+      <input id="passport-name" name="fullName" required>
+    </div>
+    <div>
+      <label for="citizenshipId">Citizenship ID</label>
+      <input id="citizenshipId" name="citizenshipId" placeholder="GC-2026-0001" required>
+      <div class="helper">Only approved citizen identifiers are accepted.</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div>
+      <label for="passportType">Passport type</label>
+      <select id="passportType" name="passportType" required>
+        <option value="">Choose one</option>
+        <option>Standard</option>
+        <option>Service</option>
+        <option>Diplomatic</option>
+      </select>
+    </div>
+    <div>
+      <label for="passport-address">Current address</label>
+      <input id="passport-address" name="address" placeholder="Postal address for issue records" required>
+    </div>
+  </div>
+  <div>
+    <label for="passport-notes">Issue notes</label>
+    <textarea id="passport-notes" name="notes" placeholder="Optional supporting context"></textarea>
+  </div>
+  <div>
+    <label for="passport-portrait">Portrait image</label>
+    <input id="passport-portrait" name="portrait" type="file" accept="image/*">
+    <div class="helper">Optional if already supplied to the Civil Registry.</div>
+  </div>
+  <button type="submit">Submit passport request</button>
+</form>
+      <div id="passport-result" style="margin-top:16px"></div>
+    </div>
+    <aside class="form-card">
+      <div class="kicker">Document tiers</div>
+      <div class="mini-list">
+        <div class="mini-item"><strong>Standard passport</strong><br>Primary identity and travel-style document for citizens.</div>
+        <div class="mini-item"><strong>Service passport</strong><br>For officials acting in state functions.</div>
+        <div class="mini-item"><strong>Diplomatic passport</strong><br>For recognised diplomatic or external representatives.</div>
+      </div>
+    </aside>
+  </section>
+
+
+<section class="section">
+  <div class="form-shell">
+    <div class="form-card">
+      <div class="kicker">Track passport request</div>
+      <h2>Check passport status</h2>
+      <form id="passport-track-form">
+        <div>
+          <label for="passport-track-ref">Passport reference</label>
+          <input id="passport-track-ref" name="reference" placeholder="GPP-2026-0001" required>
+        </div>
+        <button type="submit">Track request</button>
+      </form>
+      <div id="passport-track-result" style="margin-top:16px"></div>
+    </div>
+    <div class="form-card soft-panel">
+      <div class="kicker">Issue sequence</div>
+      <div class="mini-list">
+        <div class="mini-item"><strong>Eligibility</strong><br>Passport applications are checked against the citizen register.</div>
+        <div class="mini-item"><strong>Review</strong><br>Requests may be held pending evidence, approved for issue, or declined.</div>
+        <div class="mini-item"><strong>Passport number</strong><br>Approved requests receive a Garforvian passport number and issue date.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <h4>Government of Garforvia</h4>
+      <p>The official website of the Republic of Garforvia, presenting public services, institutions, notices, law, and state information in one place.</p>
+      <div class="footer-bottom">This build uses a live SQLite registry, application tracking, and protected administrative review. Before public internet deployment, change the default administrator credentials and configure backups, TLS, and mail delivery.</div>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <p><a href="citizenship.html">Apply for citizenship</a><br>
+      <a href="passport.html">Apply for a passport</a><br>
+      <a href="laws.html">Read laws and codes</a><br>
+      <a href="admin.html">Civil Registry dashboard</a></p>
+    </div>
+    <div>
+      <h4>Government</h4>
+      <p><a href="government.html">Departments and offices</a><br>
+      <a href="parliament.html">Parliament and parties</a><br>
+      <a href="foreign-relations.html">Foreign relations</a><br>
+      <a href="history.html">National history</a></p>
+    </div>
+  </div>
+</footer>
+<script src="assets/script.js"></script>
+</body>
+</html>

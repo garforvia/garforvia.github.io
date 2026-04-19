@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citizenship · Government of Garforvia</title>
+  <meta name="description" content="Official website of the Republic of Garforvia.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div><strong>Official website</strong> of the Republic of Garforvia</div>
+    <div>Altofts, West Yorkshire · Restored 20 March 2026</div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Government of Garforvia home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span><small>Government of Garforvia</small><strong>Republic of Garforvia</strong></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a><a href="government.html">Government</a><a href="citizenship.html" class="active">Citizenship</a><a href="passport.html">Passport</a><a href="elections.html">Elections</a><a href="news.html">News</a>
+    </nav>
+  </div>
+</header>
+<div class="alert-strip">
+  <div class="alert-inner">
+    <span class="alert-badge">Public notice</span>
+    <span class="public-notice-text">Civil Registry applications and Passport Office submissions are now live. Approved citizenship references can be used to request Garforvian passports.</span>
+  </div>
+</div>
+<main id="main" class="page">
+
+  <section class="page-hero">
+    <div class="kicker">Civil Registry</div>
+    <h1>Apply for Garforvian citizenship</h1>
+    <p>Submit an official citizenship application to the Civil Registry. Each application receives a reference number, enters the review queue, and can be tracked online.</p>
+  </section>
+
+  <section class="form-shell">
+    <div class="form-card">
+      <h2>Application form</h2>
+      
+<form id="citizenship-form" enctype="multipart/form-data">
+  <div class="form-row">
+    <div>
+      <label for="fullName">Full name</label>
+      <input id="fullName" name="fullName" required>
+    </div>
+    <div>
+      <label for="email">Email address</label>
+      <input id="email" name="email" type="email" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div>
+      <label for="region">Preferred region</label>
+      <select id="region" name="region" required>
+        <option value="">Choose one</option>
+        <option>Pavon</option>
+        <option>Hillton</option>
+        <option>Tenyaph</option>
+        <option>Woodlands</option>
+      </select>
+    </div>
+    <div>
+      <label for="reason">Primary reason for application</label>
+      <select id="reason" name="reason" required>
+        <option value="">Choose one</option>
+        <option>General citizenship</option>
+        <option>Diplomatic engagement</option>
+        <option>Political participation</option>
+        <option>Cultural affiliation</option>
+      </select>
+    </div>
+  </div>
+  <div>
+    <label for="statement">Statement of interest</label>
+    <textarea id="statement" name="statement" required></textarea>
+  </div>
+  <div class="form-row">
+    <div>
+      <label for="portrait">Portrait image</label>
+      <input id="portrait" name="portrait" type="file" accept="image/*">
+      <div class="helper">Optional. Used for registry verification and passport preparation.</div>
+    </div>
+    <div>
+      <label for="identityDocument">Identity document</label>
+      <input id="identityDocument" name="identityDocument" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp">
+      <div class="helper">Optional supporting document in PDF or image format.</div>
+    </div>
+  </div>
+  <button type="submit">Submit application</button>
+</form>
+      <div id="citizenship-result" style="margin-top:16px"></div>
+    </div>
+    <aside class="form-card">
+      <div class="kicker">Process</div>
+      <h3>How the workflow is framed</h3>
+      <div class="mini-list">
+        <div class="mini-item"><strong>1. Submission</strong><br>Applicant details are received and a reference is generated.</div>
+        <div class="mini-item"><strong>2. Review</strong><br>The Civil Registry examines eligibility, seriousness, and identity confidence.</div>
+        <div class="mini-item"><strong>3. Decision</strong><br>Status changes to approved, pending further information, or declined.</div>
+        <div class="mini-item"><strong>4. Registration</strong><br>A citizen identifier is assigned and recorded in the national register.</div>
+      </div>
+    </aside>
+  </section>
+
+
+<section class="section">
+  <div class="form-shell">
+    <div class="form-card">
+      <div class="kicker">Track application</div>
+      <h2>Check citizenship status</h2>
+      <form id="citizenship-track-form">
+        <div>
+          <label for="citizenship-track-ref">Application reference</label>
+          <input id="citizenship-track-ref" name="reference" placeholder="GCV-2026-0001" required>
+        </div>
+        <button type="submit">Track application</button>
+      </form>
+      <div id="citizenship-track-result" style="margin-top:16px"></div>
+    </div>
+    <div class="form-card soft-panel">
+      <div class="kicker">Registry guidance</div>
+      <h3>Before you apply</h3>
+      <div class="mini-list">
+        <div class="mini-item"><strong>Review period</strong><br>Applications are examined by the Civil Registry and may be approved, held pending, or declined.</div>
+        <div class="mini-item"><strong>Citizen number</strong><br>Approved applicants receive a Garforvian citizen identifier which can then be used for passport requests.</div>
+        <div class="mini-item"><strong>Status tracking</strong><br>Keep the reference issued on submission. It is the fastest way to check progress.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <h4>Government of Garforvia</h4>
+      <p>The official website of the Republic of Garforvia, presenting public services, institutions, notices, law, and state information in one place.</p>
+      <div class="footer-bottom">This build uses a live SQLite registry, application tracking, and protected administrative review. Before public internet deployment, change the default administrator credentials and configure backups, TLS, and mail delivery.</div>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <p><a href="citizenship.html">Apply for citizenship</a><br>
+      <a href="passport.html">Apply for a passport</a><br>
+      <a href="laws.html">Read laws and codes</a><br>
+      <a href="admin.html">Civil Registry dashboard</a></p>
+    </div>
+    <div>
+      <h4>Government</h4>
+      <p><a href="government.html">Departments and offices</a><br>
+      <a href="parliament.html">Parliament and parties</a><br>
+      <a href="foreign-relations.html">Foreign relations</a><br>
+      <a href="history.html">National history</a></p>
+    </div>
+  </div>
+</footer>
+<script src="assets/script.js"></script>
+</body>
+</html>
